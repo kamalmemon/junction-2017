@@ -1,21 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @rafaykh90
- Sign out
- Watch 1
-  Star 0  Fork 1 christopheranderson/azure-node-es2015-example
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
-Branch: master Find file Copy pathazure-node-es2015-example/deploy.cmd
-80e90dc  on Dec 28, 2015
-@christopheranderson christopheranderson Update comments for more description for deployments step
-1 contributor
-RawBlameHistory     
-154 lines (117 sloc)  3.64 KB
 @if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
 
 :: ----------------------
@@ -169,15 +151,3 @@ exit /b 1
 :end
 endlocal
 echo Finished successfully.
-© 2017 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
-About

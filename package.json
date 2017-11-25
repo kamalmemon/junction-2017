@@ -33,7 +33,7 @@
     "underscore.string": "^2.3.2"
   },
   "scripts": {
-    "start": "node ./node_modules/babel-cli/bin/babel-node server.js --presets es2015,stage-2",
+    "start": "node ./node_modules/babel-cli/bin/babel-node.js server.js",
     "inspect": "node ./node_modules/babel-cli/bin/babel-node server.js --presets --inspect es2015,stage-2"
   },
   "engines": {

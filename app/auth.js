@@ -24,7 +24,7 @@ class Auth {
 	}
 
 	verifyToken(token){
-		let decoded = jwt.verify(token, 'app');
+		let decoded = jwt.verify(token, process.env.APP_ID.toString());
 		return decoded ? 1 : 0; 
 	}
 }

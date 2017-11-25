@@ -13,5 +13,7 @@ router.get('/', (req, res) => {
 router.post('/register', login.userRegister);
 router.post('/login', login.userLogin)
 router.post('/object', object.addObject)
+router.get('/objects', object.getAllObjects)
+router.get('/objectbyid', object.getObjectById)
 
 module.exports = router;

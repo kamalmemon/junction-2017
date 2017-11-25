@@ -3,13 +3,13 @@
 class Objectclass{
 	constructor(userid, objname, isavailable, shelfid, rfid, quantity, imagepaths)
 	{
-		this.userid = userid || '';
-		this.objname = objname || '';
-		this.isavailable = isavailable || '';
-		this.shelfid = shelfid || '';
-		this.rfid = rfid || '';
-		this.quantity = quantity || '';
-		this.imagepaths = imagepaths;
+		this.userid = userid || 'a781d3eb-c058-4415-bd2e-973af579d5e5';
+		this.objname = objname || 'test1234';
+		this.isavailable = isavailable || false;
+		this.shelfid = shelfid || '1';
+		this.rfid = rfid || '1';
+		this.quantity = quantity || 1;
+		this.imagepaths = imagepaths || 'test';
 	}
 
 	getObject(){

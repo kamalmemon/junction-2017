@@ -34,15 +34,14 @@
     "underscore.string": "^2.3.2"
   },
   "scripts": {
-    "start": "node ./node_modules/babel-cli/bin/babel-node server.js --presets es2015,stage-2",
-    "inspect": "node ./node_modules/babel-cli/bin/babel-node server.js --presets --inspect es2015,stage-2"
+    "start": "node ./node_modules/babel-cli/bin/babel-node.js server.js --presets es2015,stage-2"
   },
   "engines": {
-    "node": "6.9.1"
+    "node": "6.9.1",
+    "npm": "^3.7.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
     "babel-istanbul": "^0.12.2",
     "babel-preset-env": "^1.6.0",
     "babel-node-debug": "^2.0.0",

@@ -39,16 +39,5 @@
   "engines": {
     "node": "6.9.1",
     "npm": "^3.7.3"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-istanbul": "^0.12.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-node-debug": "^2.0.0",
-    "chai": "^3.5.0",
-    "chai-http": "^2.0.1",
-    "eslint": "^3.19.0",
-    "mocha": "^3.5.0",
-    "nyc": "^11.0.2"
   }
 }

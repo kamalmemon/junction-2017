@@ -15,14 +15,19 @@ app.set("port", process.env.PORT || 3000);
 app.use(helmet());
 app.disable('x-powered-by')
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+const rest_api = require('./app/index')
+app.use('/', rest_api);
+
 app.listen(app.get("port"), function () {
   console.log('\n' + '**********************************');
   console.log('REST API listening on port ' + app.get("port"));
   console.log('**********************************' + '\n');
 });
 
-const rest_api = require('./app/index')
-app.use('/', rest_api);
+
 
 ////////////////////
 // Error Handlers

@@ -36,10 +36,12 @@
     "start": "node ./node_modules/babel-cli/bin/babel-node.js server.js --presets es2015,stage-2"
   },
   "engines": {
-    "node": "6.9.1"
+    "node": "6.9.1",
+    "npm": "^3.8.7"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-istanbul": "^0.12.2",
     "babel-preset-env": "^1.6.0",
     "babel-node-debug": "^2.0.0",
     "chai": "^3.5.0",

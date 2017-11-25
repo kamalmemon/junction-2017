@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-import login from './login'
-
+const login =  require('./login');
+const object =  require('./object_api');
 // http://localhost:3000/
 router.get('/', (req, res) => {
   res.status(200)
@@ -12,6 +12,6 @@ router.get('/', (req, res) => {
 });
 router.post('/register', login.userRegister);
 router.post('/login', login.userLogin)
-
+router.post('/object', object.addObject)
 
 module.exports = router;

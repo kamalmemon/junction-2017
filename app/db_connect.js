@@ -9,4 +9,4 @@ let pgp = require('pg-promise')(options);
 let connectionString = process.env.DATABASE_URL;
 let db = pgp(connectionString);	
 
-export {db, pgp}
+module.exports =  db ;

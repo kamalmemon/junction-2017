@@ -1,6 +1,6 @@
 // api to authenticate and login
-import jwt from 'jsonwebtoken'
-import base64url from "base64url"
+const jwt =  require('jsonwebtoken')
+const base64url = require("base64url")
 
 class Auth {
 	
@@ -29,4 +29,4 @@ class Auth {
 	}
 }
 
-export default Auth;
+module.exports =  Auth;

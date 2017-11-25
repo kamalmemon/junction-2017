@@ -2,10 +2,9 @@
 
 
 // connect to db
-import {db, pgp} from './db_connect'
-
-import Auth from './auth'
-import User from './user'
+const db = require('./db_connect');
+const Auth =  require('./auth');
+const User = require('./user');
 
 
 let userLogin = (req, res, next) => {
@@ -41,10 +40,11 @@ let userLogin = (req, res, next) => {
 let userRegister = (req, res, next) => {
 	let new_user = new User(req.body.username, req.body.password, req.body.email);
 	db.func('add_user', [new_user.userName.toString(), new_user.email.toString(), new_user.password.toString()])
-	.then(() =>  {
+	.then((data) =>  {
+		let result = data[0].add_user;
 		res.status(200)
           .json(
-            {"message": 'user added'}
+            result
           );
 	})
 	.catch( err => {

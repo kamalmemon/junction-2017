@@ -2,7 +2,7 @@
 
 :: ----------------------
 :: KUDU Deployment Script
-:: Version: 1.0.6
+:: Version: 1.0.15
 :: ----------------------
 
 :: Prerequisites
@@ -88,31 +88,16 @@ goto :EOF
 :Deployment
 echo Handling node.js deployment.
 
-:: 0. Select node version for build
-call :SelectNodeVersion
-
-:: 1. Install build dependencies
-pushd "%DEPLOYMENT_SOURCE%"
-call :ExecuteCmd !NPM_CMD! install --production
-IF !ERRORLEVEL! NEQ 0 goto error
-popd
-
-:: 2. Run build command
-pushd "%DEPLOYMENT_SOURCE%"
-call :ExecuteCmd !NPM_CMD! run-script build
-IF !ERRORLEVEL! NEQ 0 goto error
-popd
-
-:: 3. KuduSync - moves only the necessary files to %deployment_target%
+:: 1. KuduSync
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 
-:: 4. Select node version for Node app
+:: 2. Select node version
 call :SelectNodeVersion
 
-:: 5. Install npm packages
+:: 3. Install npm packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
   call :ExecuteCmd !NPM_CMD! install --production
@@ -121,11 +106,6 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 )
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:: Post deployment stub
-IF DEFINED POST_DEPLOYMENT_ACTION call "%POST_DEPLOYMENT_ACTION%"
-IF !ERRORLEVEL! NEQ 0 goto error
-
 goto end
 
 :: Execute command routine that will echo out when error

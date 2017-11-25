@@ -33,7 +33,7 @@
     "underscore.string": "^2.3.2"
   },
   "scripts": {
-    "start": "node  server.js"
+    "start": "node server.js"
   },
   "engines": {
     "node": "6.9.1",

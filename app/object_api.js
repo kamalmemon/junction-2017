@@ -79,7 +79,7 @@ let getAllObjects = (req, res, next) => {
             {'message': 'Bad request'}
           );
     }
-    let query = "select * from obj_info oi inner join obj_posting op on oi.objectid = op.objectid inner join obj_images oim on oim.objectid = oi.objectid";
+    let query = "select oi.objectid, objname, up.username, oi.userid, objinfo, isavailable, shelfid, rfid, price, discounts, postingdate, particulars, sellquantity, images from obj_info oi inner join obj_posting op on oi.objectid = op.objectid inner join obj_images oim on oim.objectid = oi.objectid left outer join users up on oi.userid = up.userid";
     db.any(query)
     .then(data =>{
     	res.status(200)

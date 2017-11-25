@@ -79,7 +79,7 @@ let getAllObjects = (req, res, next) => {
             {'message': 'Bad request'}
           );
     }
-    let query = "select * from obj_info oi inner join obj_posting op on oi.objectid = op.objectid";
+    let query = "select * from obj_info oi inner join obj_posting op on oi.objectid = op.objectid inner join obj_images oim on oim.objectid = oi.objectid";
     db.any(query)
     .then(data =>{
     	res.status(200)

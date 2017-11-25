@@ -20,7 +20,7 @@ let userLogin = (req, res, next) => {
           ); 
 	})
 	.catch( err => {
-		console.log(err)
+		return(next(err))
 	})
 }
 
@@ -35,7 +35,7 @@ let userRegister = (req, res, next) => {
           );
 	})
 	.catch( err => {
-		console.log(err)
+		return(next(err))
 	})
 }
 

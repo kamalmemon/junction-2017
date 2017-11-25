@@ -33,10 +33,8 @@
     "underscore.string": "^2.3.2"
   },
   "scripts": {
-    "test": "node_modules/.bin/nyc --require babel-core/register node_modules/.bin/mocha test --timeout 15000",
-    "start": "node node_modules/babel-cli/bin/babel-node server.js --presets es2015,stage-2",
-    "eslint": "eslint app/search_api.js app/index.js app/db_connect.js app/common.js app/autocomplete_api.js app/authentication.js",
-    "inspect": "node node_modules/babel-cli/bin/babel-node server.js --presets --inspect es2015,stage-2"
+    "start": "node ./node_modules/babel-cli/bin/babel-node server.js --presets es2015,stage-2",
+    "inspect": "node ./node_modules/babel-cli/bin/babel-node server.js --presets --inspect es2015,stage-2"
   },
   "engines": {
     "node": "6.9.1"

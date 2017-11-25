@@ -1,31 +1,30 @@
 // api to authenticate and login
 import jwt from 'jsonwebtoken'
+import base64url from "base64url"
 
 class Auth {
-	constructor(){}
+	
+	constructor(){
+	}
 
 	createToken(userID){
-		let header, payload, token;
-		header = {
-			"typ": "JWT",
-    		"alg": "HS256"
-		}
-
+		let payload, token, secret;
+		secret = process.env.APP_ID.toString();
 		payload = {
 			"userID" : userID 
 		}
 
 		// signature algorithm
-		data = base64urlEncode( header ) + "." + base64urlEncode( payload )
+		//let data = header  + "." +  payload 
 		token = jwt.sign({
-  			data: data	
-		}, process.env.APP_ID, { expiresIn: '1h' });
+  			data: payload	
+		}, secret , { expiresIn: '2 days' });
 
 		return token;
 	}
 
 	verifyToken(token){
-		let decoded = jwt.verify(token, process.env.APP_ID);
+		let decoded = jwt.verify(token, 'app');
 		return decoded ? 1 : 0; 
 	}
 }
